@@ -3,16 +3,18 @@
 #define CELL_H
 
 #include "CellType.h"
+#include "ProgrammSequence.h"
 
-class CCell
+class CCell 
 {
 private:
 	CellType* type = new CellType;
 	int* position = new int;
 	bool* markedState = new bool;
+	bool* isSelected = new bool;
+	bool* isRevealed = new bool;
 
 public:
-
 
 	#pragma region Getter/Setter
 
@@ -29,6 +31,14 @@ public:
 	bool* GetMarkedStatePointer(void);
 	void SetMarkedState(bool a_bMarkedState);
 
+	bool GetIsSelected(void);
+	bool* GetIsSelectedPointer(void);
+	void SetIsSelected(bool a_bIsSelected);
+
+	bool GetIsRevealed(void);
+	bool* GetIsRevealedPointer(void);
+	void SetIsRevealed(bool a_bIsRevealed);
+
 
 	#pragma endregion Getter/Setter
 
@@ -43,7 +53,12 @@ public:
 
 	CCell(CellType a_ctType, int a_iPosition);
 
+	~CCell();
+
 	#pragma endregion Constructor
+
+
+
 
 
 };

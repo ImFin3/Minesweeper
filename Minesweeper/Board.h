@@ -6,9 +6,11 @@
 #include <vector>
 #include "Cell.h"
 #include "CellType.h"
+#include <Windows.h>
+#include <fcntl.h>
+#include <io.h>
 
-
-class CBoard
+class CBoard 
 {
 private:
 	std::vector<CCell*>* cellList = new std::vector<CCell*>;
@@ -39,6 +41,8 @@ public:
 
 	CBoard(int a_iWidth, int a_iHeight,  int a_iMineCount);
 
+	~CBoard();
+
 	#pragma endregion Constructor
 
 	#pragma region Methods
@@ -46,6 +50,8 @@ public:
 	void InstantiateBoardValues(void);
 
 	void CheckAndAssignBombAmountAt(int position);
+
+	void Draw(void);
 
 	#pragma endregion Methods
 

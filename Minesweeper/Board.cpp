@@ -1,4 +1,4 @@
-#include "Board.h"
+﻿#include "Board.h"
 
 std::vector<CCell*>* CBoard::GetCellList(void)
 {
@@ -33,7 +33,35 @@ CBoard::CBoard(int a_iWidth, int a_iHeight, int a_iMineCount)
     *listLength = a_iWidth * a_iHeight;
 
     InstantiateBoardValues();
+}
 
+CBoard::~CBoard()
+{
+    int count = 0;
+
+    while (count < *listLength)
+    {
+        delete cellList->at(count);
+        cellList->at(count) = nullptr;
+
+        count++;
+    }
+
+    cellList->clear();
+    delete cellList;
+    cellList = nullptr;
+
+    delete width;
+    width = nullptr;
+
+    delete height;
+    height = nullptr;
+
+    delete mineCount;
+    mineCount = nullptr;
+
+    delete listLength;
+    listLength = nullptr;
 }
 
 void CBoard::InstantiateBoardValues(void)
@@ -83,19 +111,19 @@ void CBoard::CheckAndAssignBombAmountAt(int position)
     //check for how many bombs are around
     else 
     {
-        //top left 
+        //bot left 
         if (position + *width - 1 <= *listLength) 
         {
             if (cellList->at(position)->GetType() == CellType::CELLTYPE_MINE) bombAmount++;
         }
 
-        //top mid
+        //bot mid
         if (position + *width <= *listLength)
         {
             if (cellList->at(position)->GetType() == CellType::CELLTYPE_MINE) bombAmount++;
         }
 
-        //top right
+        //bot right
         if (position + *width + 1 <= *listLength)
         {
             if (cellList->at(position)->GetType() == CellType::CELLTYPE_MINE) bombAmount++;
@@ -113,19 +141,19 @@ void CBoard::CheckAndAssignBombAmountAt(int position)
             if (cellList->at(position)->GetType() == CellType::CELLTYPE_MINE) bombAmount++;
         }
 
-        //bot left
+        //top left
         if (position - *width - 1 >= 0)
         {
             if (cellList->at(position)->GetType() == CellType::CELLTYPE_MINE) bombAmount++;
         }
 
-        //bot mid
+        //top mid
         if (position - *width >= 0)
         {
             if (cellList->at(position)->GetType() == CellType::CELLTYPE_MINE) bombAmount++;
         }
 
-        //bot right
+        //top right
         if (position - *width + 1 >= 0)
         {
             if (cellList->at(position)->GetType() == CellType::CELLTYPE_MINE) bombAmount++;
@@ -162,7 +190,115 @@ void CBoard::CheckAndAssignBombAmountAt(int position)
     case 8:
         cellList->at(position)->SetType(CellType::CELLTYPE_8);
         break;
+    }    
+}
+
+// ■  =      □ = \x25a1      exmpl. std::wcout << L"\x25a0 / \x25a1";
+// blue = 9         1
+// green = 2        2
+// red = 4          3
+// darkblue = 1     4
+// brown = 6        5
+// cyan = 11        6
+// black = 8        7
+// grey = 7         8 
+
+//SetConsoleTextAttribute(h, 1); -> change colour
+
+void CBoard::Draw(void)
+{
+    _setmode(_fileno(stdout), _O_U16TEXT);
+
+    HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
+
+    int count = 0;
+    int widthCount = 0;
+
+
+    //drawing
+    while (count < *listLength) 
+    {
+        //did the player mark it?
+        if (cellList->at(count)->GetMarkedState() == true) 
+        {
+
+        }
+
+        //was it already revealed?
+        else if (cellList->at(count)->GetIsRevealed() == true) 
+        {
+            switch (cellList->at(count)->GetType())
+            {
+            case CellType::CELLTYPE_EMPTY:
+
+
+                break;
+
+            case CellType::CELLTYPE_1:
+
+
+                break;
+
+            case CellType::CELLTYPE_2:
+
+
+                break;
+
+            case CellType::CELLTYPE_3:
+
+
+                break;
+
+            case CellType::CELLTYPE_4:
+
+
+                break;
+
+            case CellType::CELLTYPE_5:
+
+
+                break;
+
+            case CellType::CELLTYPE_6:
+
+
+                break;
+
+            case CellType::CELLTYPE_7:
+
+
+                break;
+
+            case CellType::CELLTYPE_8:
+
+
+                break;
+
+            case CellType::CELLTYPE_MINE:
+
+
+                break;
+            }
+        }
+        
+        //player didnt mark it and also didnt reveal it yet
+        else 
+        {
+            std::wcout << L"\x25a0 ";
+        }
+
+        count++;
+        widthCount++;
+
+
+        if (widthCount == *width) 
+        {
+            std::wcout << L"\n";
+            widthCount = 0;
+        }
+        
     }
 
-    
 }
+
+

@@ -1,5 +1,2 @@
 ﻿  Board.cpp
-D:\Studium\Semester 3\Diploma\Konsolenprojekt\Minesweeper\Minesweeper\Board.h(14,8): warning C4200: Nicht dem Standard entsprechende Erweiterung: Null-Array in Struktur/Union
-D:\Studium\Semester 3\Diploma\Konsolenprojekt\Minesweeper\Minesweeper\Board.h(14,8): message : Dieser Member wird vom Standardkonstruktor oder Zuweisungsoperator für Kopieren/Verschieben ignoriert.
-  LINK : D:\Studium\Semester 3\Diploma\Konsolenprojekt\Minesweeper\x64\Debug\Minesweeper.exe wurde nicht gefunden oder beim letzten inkrementellen Linkvorgang nicht erstellt; vollständiger Link wird durchgeführt.
   Minesweeper.vcxproj -> D:\Studium\Semester 3\Diploma\Konsolenprojekt\Minesweeper\x64\Debug\Minesweeper.exe

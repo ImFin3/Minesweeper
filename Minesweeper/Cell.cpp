@@ -22,7 +22,7 @@ int CCell::GetPosition(void)
 
 int* CCell::GetPositionPointer(void)
 {
-	return this->position;
+	return position;
 }
 
 void CCell::SetPosition(int a_iPosition)
@@ -37,7 +37,7 @@ bool CCell::GetMarkedState(void)
 
 bool* CCell::GetMarkedStatePointer(void)
 {
-	return this->markedState;
+	return markedState;
 }
 
 void CCell::SetMarkedState(bool a_bMarkedState)
@@ -45,9 +45,60 @@ void CCell::SetMarkedState(bool a_bMarkedState)
 	*markedState = a_bMarkedState;
 }
 
+bool CCell::GetIsSelected(void)
+{
+	return *isSelected;
+}
+
+bool* CCell::GetIsSelectedPointer(void)
+{
+	return isSelected;
+}
+
+void CCell::SetIsSelected(bool a_bIsSelected)
+{
+	*isSelected = a_bIsSelected;
+}
+
+bool CCell::GetIsRevealed(void)
+{
+	return *isRevealed;
+}
+
+bool* CCell::GetIsRevealedPointer(void)
+{
+	return isRevealed;
+}
+
+void CCell::SetIsRevealed(bool a_bIsRevealed)
+{
+	*isRevealed = a_bIsRevealed;
+}
+
 CCell::CCell(CellType a_ctType, int a_iPosition)
 {
 	*type = a_ctType;
 	*position = a_iPosition;
 	*markedState = false;
+	*isSelected = false;
+	*isRevealed = false;
 }
+
+CCell::~CCell()
+{
+	delete type;
+	type = nullptr;
+
+	delete position;
+	position = nullptr;
+
+	delete markedState;
+	markedState = nullptr;
+
+	delete isSelected;
+	isSelected = nullptr;
+
+	delete isRevealed;
+	isRevealed = nullptr;
+}
+

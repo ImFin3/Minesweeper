@@ -1,7 +1,22 @@
-#include <iostream>
+﻿#include <iostream>
+#include <Windows.h>
+#include <fcntl.h>
+#include <io.h>
 
-int main()
+int main() 
 {
-    std::cout << "Hello World!\n";
+    _setmode(_fileno(stdout), _O_U16TEXT);
+
+    HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
+    
+    //for (int i = 0; i < 1; i++) 
+    //{
+    //    SetConsoleTextAttribute(h, i);
+    //    std::cout << i << " = ";
+    //    std::cout << "Hello World!\n";
+    //}
+
+    std::wcout << L"\x25a0 / \x25a1";
+    
 }
 
