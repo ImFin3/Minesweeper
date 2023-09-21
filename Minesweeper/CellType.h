@@ -1,7 +1,7 @@
 #ifndef CELL_TYPE_H
 #define CELL_TYPE_H
 
-enum class CellType 
+enum class CellType
 {
 	CELLTYPE_EMPTY = 0,
 	CELLTYPE_1,
@@ -13,7 +13,6 @@ enum class CellType
 	CELLTYPE_7,
 	CELLTYPE_8,
 	CELLTYPE_MINE,
-	CELLTYPE_NONE
 };
 
 #endif // !CELL_TYPE_H
