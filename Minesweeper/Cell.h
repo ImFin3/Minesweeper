@@ -8,11 +8,11 @@
 class CCell 
 {
 private:
-	CellType* type = new CellType;
-	int* position = new int;
-	bool* markedState = new bool;
-	bool* isSelected = new bool;
-	bool* isRevealed = new bool;
+	CellType type;
+	int position;
+	bool markedState;
+	bool isSelected;
+	bool isRevealed;
 
 public:
 
@@ -20,23 +20,18 @@ public:
 
 
 	CellType GetType(void);
-	CellType* GetTypePointer(void);
 	void SetType(CellType a_ctType);
 
 	int GetPosition(void);
-	int* GetPositionPointer(void);
 	void SetPosition(int a_iPosition);
 
 	bool GetMarkedState(void);
-	bool* GetMarkedStatePointer(void);
 	void SetMarkedState(bool a_bMarkedState);
 
 	bool GetIsSelected(void);
-	bool* GetIsSelectedPointer(void);
 	void SetIsSelected(bool a_bIsSelected);
 
 	bool GetIsRevealed(void);
-	bool* GetIsRevealedPointer(void);
 	void SetIsRevealed(bool a_bIsRevealed);
 
 

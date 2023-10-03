@@ -9,14 +9,14 @@ int main()
 
     HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
     
-    //for (int i = 0; i < 1; i++) 
-    //{
-    //    SetConsoleTextAttribute(h, i);
-    //    std::cout << i << " = ";
-    //    std::cout << "Hello World!\n";
-    //}
+    for (int i = 0; i < 20; i++) 
+    {
+        SetConsoleTextAttribute(h, i);
+        std::wcout << i << " = ";
+        std::wcout << "Hello World \n";
+    }
 
-    std::wcout << L"\x25a0 / \x25a1";
+    std::wcout << L"\x25a0 / \x25a1 / \x203C";
     
 }
 
