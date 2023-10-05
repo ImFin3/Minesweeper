@@ -59,8 +59,5 @@ CCell::CCell(CellType a_ctType, int a_iPosition)
 	isRevealed = false;
 }
 
-CCell::~CCell()
-{
 
-}
 

@@ -21,8 +21,16 @@ public:
 
 private:
 	CBoard Introduction(void);
+	void PETC(void);
+	CBoard GetBoardValues(void);
+	int TryGetWidth(void);
+	int TryGetHeight(void);
+	int TryGetBombAmount(int numberOfFields);
+
 
 	#pragma endregion Methods
+
+
 };
 
 #endif

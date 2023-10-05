@@ -48,8 +48,6 @@ public:
 
 	CCell(CellType a_ctType, int a_iPosition);
 
-	~CCell();
-
 	#pragma endregion Constructor
 
 

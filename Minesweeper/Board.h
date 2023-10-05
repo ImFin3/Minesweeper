@@ -13,7 +13,7 @@
 class CBoard 
 {
 private:
-	std::vector<CCell*> cellList;
+	std::vector<CCell> cellList;
 	int width;
 	int height;
 	int mineCount;
@@ -23,7 +23,7 @@ public:
 
 	#pragma region Getter
 
-	std::vector<CCell*> GetCellList(void);
+	std::vector<CCell> GetCellList(void);
 	int GetWidth(void);
 	int GetHeight(void);
 	int GetMineCount(void);
@@ -42,8 +42,6 @@ public:
 	CBoard();
 
 	CBoard(int a_iWidth, int a_iHeight,  int a_iMineCount);
-
-	~CBoard();
 
 	#pragma endregion Constructor
 
