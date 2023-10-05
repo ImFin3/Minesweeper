@@ -1,2 +1,10 @@
-﻿  Minesweeper.cpp
+﻿  Board.cpp
+  MainProgramm.cpp
+C:\Users\h-p\OneDrive\Desktop\Repository\Minesweeper\Minesweeper\MainProgramm.h(1,1): warning C4828: Die Datei enthält ein Zeichen, das bei Offset 0xf8 beginnt. Dieses Zeichen ist im aktuellen Quellzeichensatz (Codepage 65001) unzulässig.
+C:\Users\h-p\OneDrive\Desktop\Repository\Minesweeper\Minesweeper\MainProgramm.cpp(82,13): warning C4101: "input": Unreferenzierte lokale Variable
+C:\Users\h-p\OneDrive\Desktop\Repository\Minesweeper\Minesweeper\MainProgramm.cpp(111,13): warning C4101: "input": Unreferenzierte lokale Variable
+C:\Users\h-p\OneDrive\Desktop\Repository\Minesweeper\Minesweeper\MainProgramm.cpp(141,13): warning C4101: "input": Unreferenzierte lokale Variable
+  Minesweeper.cpp
+C:\Users\h-p\OneDrive\Desktop\Repository\Minesweeper\Minesweeper\MainProgramm.h(1,1): warning C4828: Die Datei enthält ein Zeichen, das bei Offset 0xf8 beginnt. Dieses Zeichen ist im aktuellen Quellzeichensatz (Codepage 65001) unzulässig.
+  Code wird generiert...
   Minesweeper.vcxproj -> C:\Users\h-p\OneDrive\Desktop\Repository\Minesweeper\x64\Debug\Minesweeper.exe

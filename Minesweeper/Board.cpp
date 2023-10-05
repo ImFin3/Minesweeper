@@ -1,6 +1,6 @@
 ﻿#include "Board.h"
 
-std::vector<CCell*> CBoard::GetCellList(void)
+std::vector<CCell> CBoard::GetCellList(void)
 {
     return this->cellList;
 }
@@ -37,21 +37,7 @@ CBoard::CBoard(int a_iWidth, int a_iHeight, int a_iMineCount)
 
 CBoard::CBoard()
 {
-}
 
-CBoard::~CBoard()
-{
-    int count = 0;
-
-    while (count < listLength)
-    {
-        delete cellList.at(count);
-        cellList.at(count) = nullptr;
-
-        count++;
-    }
-
-    cellList.clear();
 }
 
 void CBoard::InstantiateBoardValues(void)
@@ -62,7 +48,7 @@ void CBoard::InstantiateBoardValues(void)
     //fill list with values
     while (count < listLength) 
     {
-        cellList.push_back(new CCell(CellType::CELLTYPE_EMPTY, count));
+        cellList.push_back(CCell(CellType::CELLTYPE_EMPTY, count));
 
         count++;
     }
@@ -72,11 +58,11 @@ void CBoard::InstantiateBoardValues(void)
     //change random list elements to mines
     while (count < mineCount) 
     {
-        int minePos = rand() % listLength + 1;
+        int minePos = rand() % listLength;
 
-        if (cellList.at(minePos)->GetType() == CellType::CELLTYPE_EMPTY) 
+        if (cellList.at(minePos).GetType() == CellType::CELLTYPE_EMPTY) 
         {
-            cellList.at(minePos)->SetType(CellType::CELLTYPE_MINE);
+            cellList.at(minePos).SetType(CellType::CELLTYPE_MINE);
 
             count++;
         }
@@ -96,7 +82,7 @@ void CBoard::CheckAndAssignBombAmountAt(int position)
 {
     int bombAmount = 0;
 
-    if (cellList.at(position)->GetType() == CellType::CELLTYPE_MINE) return;
+    if (cellList.at(position).GetType() == CellType::CELLTYPE_MINE) return;
 
 
     //check for how many bombs are around
@@ -105,49 +91,49 @@ void CBoard::CheckAndAssignBombAmountAt(int position)
         //bot left 
         if (position + width - 1 <= listLength) 
         {
-            if (cellList.at(position)->GetType() == CellType::CELLTYPE_MINE) bombAmount++;
+            if (cellList.at(position).GetType() == CellType::CELLTYPE_MINE) bombAmount++;
         }
 
         //bot mid
         if (position + width <= listLength)
         {
-            if (cellList.at(position)->GetType() == CellType::CELLTYPE_MINE) bombAmount++;
+            if (cellList.at(position).GetType() == CellType::CELLTYPE_MINE) bombAmount++;
         }
 
         //bot right
         if (position + width + 1 <= listLength)
         {
-            if (cellList.at(position)->GetType() == CellType::CELLTYPE_MINE) bombAmount++;
+            if (cellList.at(position).GetType() == CellType::CELLTYPE_MINE) bombAmount++;
         }
 
         //left
         if(position - 1 >= 0)
         {
-            if (cellList.at(position)->GetType() == CellType::CELLTYPE_MINE) bombAmount++;
+            if (cellList.at(position).GetType() == CellType::CELLTYPE_MINE) bombAmount++;
         }
 
         //right
         if (position + 1 <= listLength)
         {
-            if (cellList.at(position)->GetType() == CellType::CELLTYPE_MINE) bombAmount++;
+            if (cellList.at(position).GetType() == CellType::CELLTYPE_MINE) bombAmount++;
         }
 
         //top left
         if (position - width - 1 >= 0)
         {
-            if (cellList.at(position)->GetType() == CellType::CELLTYPE_MINE) bombAmount++;
+            if (cellList.at(position).GetType() == CellType::CELLTYPE_MINE) bombAmount++;
         }
 
         //top mid
         if (position - width >= 0)
         {
-            if (cellList.at(position)->GetType() == CellType::CELLTYPE_MINE) bombAmount++;
+            if (cellList.at(position).GetType() == CellType::CELLTYPE_MINE) bombAmount++;
         }
 
         //top right
         if (position - width + 1 >= 0)
         {
-            if (cellList.at(position)->GetType() == CellType::CELLTYPE_MINE) bombAmount++;
+            if (cellList.at(position).GetType() == CellType::CELLTYPE_MINE) bombAmount++;
         }
 
     }
@@ -155,31 +141,31 @@ void CBoard::CheckAndAssignBombAmountAt(int position)
     switch (bombAmount)
     {
     case 0:
-        cellList.at(position)->SetType(CellType::CELLTYPE_EMPTY);
+        cellList.at(position).SetType(CellType::CELLTYPE_EMPTY);
         break;
     case 1:
-        cellList.at(position)->SetType(CellType::CELLTYPE_1);
+        cellList.at(position).SetType(CellType::CELLTYPE_1);
         break;
     case 2:
-        cellList.at(position)->SetType(CellType::CELLTYPE_2);
+        cellList.at(position).SetType(CellType::CELLTYPE_2);
         break;
     case 3:
-        cellList.at(position)->SetType(CellType::CELLTYPE_3);
+        cellList.at(position).SetType(CellType::CELLTYPE_3);
         break;
     case 4:
-        cellList.at(position)->SetType(CellType::CELLTYPE_4);
+        cellList.at(position).SetType(CellType::CELLTYPE_4);
         break;
     case 5:
-        cellList.at(position)->SetType(CellType::CELLTYPE_5);
+        cellList.at(position).SetType(CellType::CELLTYPE_5);
         break;
     case 6:
-        cellList.at(position)->SetType(CellType::CELLTYPE_6);
+        cellList.at(position).SetType(CellType::CELLTYPE_6);
         break;
     case 7:
-        cellList.at(position)->SetType(CellType::CELLTYPE_7);
+        cellList.at(position).SetType(CellType::CELLTYPE_7);
         break;
     case 8:
-        cellList.at(position)->SetType(CellType::CELLTYPE_8);
+        cellList.at(position).SetType(CellType::CELLTYPE_8);
         break;
     }    
 }
@@ -213,15 +199,15 @@ void CBoard::Draw(void)
     while (count < listLength) 
     {
         //did the player mark it?
-        if (cellList.at(count)->GetMarkedState() == true) 
+        if (cellList.at(count).GetMarkedState() == true) 
         {
             std::wcout << L"\x203c"; //‼
         }
 
         //was it already revealed?
-        else if (cellList.at(count)->GetIsRevealed() == true) 
+        else if (cellList.at(count).GetIsRevealed() == true) 
         {
-            switch (cellList.at(count)->GetType())
+            switch (cellList.at(count).GetType())
             {
             case CellType::CELLTYPE_EMPTY:
                 std::wcout << L"\x25a1"; //□

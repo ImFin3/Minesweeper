@@ -2,11 +2,12 @@
 
 #define PROGRAMM_SEQUENCE_H
 
-__interface IProgrammSequence
+class IProgrammSequence
 {
-	void Initialize(void);
-	void Run(void);
-	void Finalize(void);
+public:
+	virtual void Initialize(void) = 0;
+	virtual void Run(void) = 0;
+	virtual void Finalize(void) = 0;
 };
 
 #endif 
