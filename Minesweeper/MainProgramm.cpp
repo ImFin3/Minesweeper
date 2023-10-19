@@ -1,7 +1,5 @@
 #include "MainProgramm.h"
-#include <string>
-#include <iostream>
-#include <sstream>
+
 
 
 void CMainProgramm::Initialize(void)
@@ -12,8 +10,13 @@ void CMainProgramm::Initialize(void)
 
 void CMainProgramm::Run(void)
 {
-	board->Draw();
-	system("pause");
+	while (board->GetGameState() == GameState::Ongoing) 
+	{
+		system("cls");
+		board->Draw();
+		TryGetInput();
+	}
+	
 }
 
 void CMainProgramm::Finalize(void)
@@ -28,18 +31,18 @@ CBoard CMainProgramm::Introduction(void)
 
 	std::wcout << "Welcome to Minesweeper console Edition!\n";
 
-	PETC();
+	Pause();
 
 	std::wcout << "You can move via WASD,\n";
 	std::wcout << "reveal the selected Field via R,\n";
 	std::wcout << "and mark the selected Field as a bomb via E!\n";
 
-	PETC();
+	Pause();
 
 	return GetBoardValues();
 }
 
-void CMainProgramm::PETC(void)
+void CMainProgramm::Pause(void)
 {
 	std::cout << "\n";
 	system("pause");
@@ -82,7 +85,7 @@ int CMainProgramm::TryGetWidth(void)
 	catch (int input)
 	{
 		std::wcout << "The given width was either smaller than 5 or didnt contain a number!\n";
-		PETC();
+		Pause();
 
 		return TryGetWidth();
 	}
@@ -111,7 +114,7 @@ int CMainProgramm::TryGetHeight(void)
 	catch (int input)
 	{
 		std::wcout << "The given height was either smaller than 5 or didnt contain a number!\n";
-		PETC();
+		Pause();
 
 		return TryGetHeight();
 	}
@@ -141,10 +144,25 @@ int CMainProgramm::TryGetBombAmount(int numberOfFields)
 	catch (int input)
 	{
 		std::wcout << "The given Bomb Amount either exceeded the limit of Fields, was smaller or equal 1 or didnt contain a number!\n";
-		PETC();
+		Pause();
 
 		return TryGetBombAmount(numberOfFields);
 	}
+}
+
+void CMainProgramm::TryGetInput(void)
+{
+	std::string inp;
+
+	std::cin >> inp;
+
+	if (inp == "w") { board->GoUp(); return; };
+	if (inp == "a") { board->GoLeft(); return; };
+	if (inp == "s") { board->GoDown(); return; };
+	if (inp == "d") { board->GoRight(); return; };
+
+	if (inp == "r") { board->Reveal(board->GetCurrentPosition()); return; };
+	if (inp == "e") { board->Mark(); return; };
 }
 
 

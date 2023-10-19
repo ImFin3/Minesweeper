@@ -137,6 +137,7 @@
     <ClInclude Include="Board.h" />
     <ClInclude Include="Cell.h" />
     <ClInclude Include="CellType.h" />
+    <ClInclude Include="GameState.h" />
     <ClInclude Include="MainProgramm.h" />
     <ClInclude Include="ProgrammSequence.h" />
   </ItemGroup>

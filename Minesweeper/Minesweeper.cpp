@@ -14,11 +14,6 @@ int main()
     main->Run();
 
     main->Finalize();
-
-    
-    
-    
-    
     
     
     //_setmode(_fileno(stdout), _O_U16TEXT);

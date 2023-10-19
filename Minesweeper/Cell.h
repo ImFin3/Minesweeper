@@ -9,7 +9,6 @@ class CCell
 {
 private:
 	CellType type;
-	int position;
 	bool markedState;
 	bool isSelected;
 	bool isRevealed;
@@ -21,9 +20,6 @@ public:
 
 	CellType GetType(void);
 	void SetType(CellType a_ctType);
-
-	int GetPosition(void);
-	void SetPosition(int a_iPosition);
 
 	bool GetMarkedState(void);
 	void SetMarkedState(bool a_bMarkedState);
@@ -46,7 +42,7 @@ public:
 
 	#pragma region Constructor
 
-	CCell(CellType a_ctType, int a_iPosition);
+	CCell(CellType a_ctType);
 
 	#pragma endregion Constructor
 

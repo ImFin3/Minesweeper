@@ -4,6 +4,9 @@
 
 #include "ProgrammSequence.h"
 #include "Board.h"
+#include <string>
+#include <iostream>
+#include <sstream>
 
 class CMainProgramm : IProgrammSequence
 {
@@ -21,11 +24,12 @@ public:
 
 private:
 	CBoard Introduction(void);
-	void PETC(void);
+	void Pause(void);
 	CBoard GetBoardValues(void);
 	int TryGetWidth(void);
 	int TryGetHeight(void);
 	int TryGetBombAmount(int numberOfFields);
+	void TryGetInput(void);
 
 
 	#pragma endregion Methods

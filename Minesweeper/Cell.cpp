@@ -10,15 +10,15 @@ void CCell::SetType(CellType a_ctType)
 	type = a_ctType;
 }
 
-int CCell::GetPosition(void)
-{
-	return position;
-}
-
-void CCell::SetPosition(int a_iPosition)
-{
-	position = a_iPosition;
-}
+//int CCell::GetPosition(void)
+//{
+//	return position;
+//}
+//
+//void CCell::SetPosition(int a_iPosition)
+//{
+//	position = a_iPosition;
+//}
 
 bool CCell::GetMarkedState(void)
 {
@@ -50,10 +50,9 @@ void CCell::SetIsRevealed(bool a_bIsRevealed)
 	isRevealed = a_bIsRevealed;
 }
 
-CCell::CCell(CellType a_ctType, int a_iPosition)
+CCell::CCell(CellType a_ctType)
 {
 	type = a_ctType;
-	position = a_iPosition;
 	markedState = false;
 	isSelected = false;
 	isRevealed = false;

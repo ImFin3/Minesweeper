@@ -9,25 +9,30 @@
 #include <Windows.h>
 #include <fcntl.h>
 #include <io.h>
+#include "GameState.h"
 
 class CBoard 
 {
 private:
 	std::vector<CCell> cellList;
+	int currentPosition;
 	int width;
 	int height;
 	int mineCount;
 	int listLength;
+	GameState gameState;
 	
 public:
 
 	#pragma region Getter
 
 	std::vector<CCell> GetCellList(void);
+	int GetCurrentPosition(void);
 	int GetWidth(void);
 	int GetHeight(void);
 	int GetMineCount(void);
 	int GetListLength(void);
+	GameState GetGameState(void);
 
 	#pragma endregion Getter
 
@@ -52,6 +57,14 @@ public:
 	void CheckAndAssignBombAmountAt(int position);
 
 	void Draw(void);
+
+	void GoUp(void);
+	void GoLeft(void);
+	void GoDown(void);
+	void GoRight(void);
+
+	void Reveal(int position);
+	void Mark(void);
 
 	#pragma endregion Methods
 
