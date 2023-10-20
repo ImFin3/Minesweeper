@@ -54,6 +54,7 @@ CBoard::CBoard()
 
 void CBoard::InstantiateBoardValues(void)
 {
+    std::srand(std::time(nullptr));
     int count = 0;
     cellList.clear();
 
@@ -75,7 +76,6 @@ void CBoard::InstantiateBoardValues(void)
     //change random list elements to mines
     while (count < mineCount) 
     {
-        std::srand(std::time(nullptr));
         int minePos = rand() % listLength;
 
         if (cellList.at(minePos).GetType() == CellType::CELLTYPE_EMPTY) 

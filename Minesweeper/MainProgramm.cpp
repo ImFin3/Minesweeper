@@ -71,6 +71,7 @@ int CMainProgramm::TryGetWidth(void)
 	system("cls");
 	std::wcout << "How wide should the Board be?\n";
 	std::wcout << "It has to be bigger than 4\n";
+	std::wcout << "It has to be smaller than 66\n";
 
 	std::string inp;
 
@@ -82,7 +83,7 @@ int CMainProgramm::TryGetWidth(void)
 
 	try
 	{
-		if (value > 4) { return value; }
+		if (value > 4 && value < 66) { return value; }
 		else { throw value; }
 
 	}
@@ -100,6 +101,7 @@ int CMainProgramm::TryGetHeight(void)
 	system("cls");
 	std::wcout << "How high should the Board be?\n";
 	std::wcout << "It has to be bigger than 4\n";
+	std::wcout << "It has to be smaller than 66\n";
 
 	std::string inp;
 
@@ -111,7 +113,7 @@ int CMainProgramm::TryGetHeight(void)
 
 	try
 	{
-		if (value > 4) { return value; }
+		if (value > 4 && value < 66) { return value; }
 		else { throw value; }
 
 	}
