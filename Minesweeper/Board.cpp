@@ -75,6 +75,7 @@ void CBoard::InstantiateBoardValues(void)
     //change random list elements to mines
     while (count < mineCount) 
     {
+        std::srand(std::time(nullptr));
         int minePos = rand() % listLength;
 
         if (cellList.at(minePos).GetType() == CellType::CELLTYPE_EMPTY) 
@@ -324,6 +325,50 @@ void CBoard::Draw(void)
 
 }
 
+void CBoard::WinCheck(void)
+{
+    if (gameState == GameState::Ongoing) 
+    {
+        int count = 0;
+
+        //a didnt win check is simpler and faster then a did win check 
+        gameState = GameState::Won;
+
+        while (count < listLength)
+        {
+            if (cellList.at(count).GetIsRevealed() == false && cellList.at(count).GetType() != CellType::CELLTYPE_MINE) { gameState = GameState::Ongoing; break; }
+
+            count++;
+        }
+    }
+}
+
+void CBoard::EndScreen(void)
+{
+    if (gameState == GameState::Won) { WonScreen(); }
+    else if (gameState == GameState::Lost) { LostScreen(); }
+}
+
+void CBoard::WonScreen(void)
+{
+    system("cls");
+    cellList.at(currentPosition).SetIsSelected(false);
+    Draw();
+    std::wcout << L"\n";
+    std::wcout << L"Congratulations, YOU WON!\n";
+    system("pause");
+}
+
+void CBoard::LostScreen(void)
+{
+    system("cls");
+    cellList.at(currentPosition).SetIsSelected(false);
+    Draw();
+    std::wcout << L"\n";
+    std::wcout << L"You Lost, L!\n";
+    system("pause");
+}
+
 void CBoard::GoUp(void)
 {
     //the player cant go up
@@ -358,7 +403,7 @@ void CBoard::GoLeft(void)
 void CBoard::GoDown(void)
 {
     //the player cant go down
-    if (currentPosition + width > listLength)
+    if (currentPosition + width >= listLength)
     {
         return;
     }
@@ -373,7 +418,7 @@ void CBoard::GoDown(void)
 void CBoard::GoRight(void)
 {
     //the player cant go right
-    if (currentPosition + 1 > listLength)
+    if (currentPosition + 1 >= listLength)
     {
         return;
     }
@@ -391,7 +436,7 @@ void CBoard::Reveal(int position)
     cellList.at(position).SetIsRevealed(true);
 
     //player revealed a bomb
-    //if (cellList.at(position).GetType() == CellType::CELLTYPE_MINE) { gameState = GameState::Lost; return; }
+    if (cellList.at(position).GetType() == CellType::CELLTYPE_MINE) { gameState = GameState::Lost; return; }
 
     //player revealed an empty cell -> reveal all cells around it 
     if (cellList.at(position).GetType() == CellType::CELLTYPE_EMPTY) 

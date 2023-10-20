@@ -10,6 +10,7 @@
 #include <fcntl.h>
 #include <io.h>
 #include "GameState.h"
+#include <ctime>
 
 class CBoard 
 {
@@ -52,11 +53,19 @@ public:
 
 	#pragma region Methods
 
+private:
 	void InstantiateBoardValues(void);
 
 	void CheckAndAssignBombAmountAt(int position);
 
+	void WonScreen(void);
+	void LostScreen(void);
+
+public:
 	void Draw(void);
+
+	void WinCheck(void);
+	void EndScreen(void);
 
 	void GoUp(void);
 	void GoLeft(void);

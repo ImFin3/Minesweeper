@@ -7,13 +7,13 @@
 int main() 
 {
     
-    CMainProgramm* main = new CMainProgramm();
+    CMainProgramm* MinesweeperGame = new CMainProgramm();
 
-    main->Initialize();
+    MinesweeperGame->Initialize();
 
-    main->Run();
+    MinesweeperGame->Run();
 
-    main->Finalize();
+    MinesweeperGame->Finalize();
     
     
     //_setmode(_fileno(stdout), _O_U16TEXT);

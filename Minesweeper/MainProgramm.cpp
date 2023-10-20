@@ -15,7 +15,11 @@ void CMainProgramm::Run(void)
 		system("cls");
 		board->Draw();
 		TryGetInput();
+		board->WinCheck();
 	}
+
+	board->EndScreen();
+
 	
 }
 

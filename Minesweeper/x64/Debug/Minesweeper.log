@@ -1,2 +1,11 @@
 ﻿  Board.cpp
+D:\Studium\Semester 3\Diploma\Konsolenprojekt\Minesweeper\Minesweeper\Board.cpp(78,29): warning C4244: "Argument": Konvertierung von "time_t" in "unsigned int", möglicher Datenverlust
+  MainProgramm.cpp
+D:\Studium\Semester 3\Diploma\Konsolenprojekt\Minesweeper\Minesweeper\MainProgramm.h(1,1): warning C4828: Die Datei enthält ein Zeichen, das bei Offset 0x134 beginnt. Dieses Zeichen ist im aktuellen Quellzeichensatz (Codepage 65001) unzulässig.
+D:\Studium\Semester 3\Diploma\Konsolenprojekt\Minesweeper\Minesweeper\MainProgramm.cpp(89,13): warning C4101: "input": Unreferenzierte lokale Variable
+D:\Studium\Semester 3\Diploma\Konsolenprojekt\Minesweeper\Minesweeper\MainProgramm.cpp(118,13): warning C4101: "input": Unreferenzierte lokale Variable
+D:\Studium\Semester 3\Diploma\Konsolenprojekt\Minesweeper\Minesweeper\MainProgramm.cpp(148,13): warning C4101: "input": Unreferenzierte lokale Variable
+  Minesweeper.cpp
+D:\Studium\Semester 3\Diploma\Konsolenprojekt\Minesweeper\Minesweeper\MainProgramm.h(1,1): warning C4828: Die Datei enthält ein Zeichen, das bei Offset 0x134 beginnt. Dieses Zeichen ist im aktuellen Quellzeichensatz (Codepage 65001) unzulässig.
+  Code wird generiert...
   Minesweeper.vcxproj -> D:\Studium\Semester 3\Diploma\Konsolenprojekt\Minesweeper\x64\Debug\Minesweeper.exe
