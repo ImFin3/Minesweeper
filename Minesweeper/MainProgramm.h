@@ -30,6 +30,7 @@ private:
 	int TryGetHeight(void);
 	int TryGetBombAmount(int numberOfFields);
 	void TryGetInput(void);
+	
 
 
 	#pragma endregion Methods

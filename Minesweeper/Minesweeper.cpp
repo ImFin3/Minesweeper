@@ -14,20 +14,9 @@ int main()
     MinesweeperGame->Run();
 
     MinesweeperGame->Finalize();
-    
-    
-    //_setmode(_fileno(stdout), _O_U16TEXT);
 
-    //HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
-    //
-    //for (int i = 0; i < 20; i++) 
-    //{
-    //    SetConsoleTextAttribute(h, i);
-    //    std::wcout << i << " = ";
-    //    std::wcout << "Hello World \n";
-    //}
-
-    //std::wcout << L"\x25a0 / \x25a1 / \x203C";
+    delete MinesweeperGame;
+    MinesweeperGame = nullptr;
     
 }
 
