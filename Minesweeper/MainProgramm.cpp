@@ -10,16 +10,18 @@ void CMainProgramm::Initialize(void)
 
 void CMainProgramm::Run(void)
 {
-	while (board->GetGameState() == GameState::Ongoing) 
+	if(board != nullptr)
 	{
-		system("cls");
-		board->Draw();
-		TryGetInput();
-		board->WinCheck();
+		while (board->GetGameState() == GameState::Ongoing)
+		{
+			system("cls");
+			board->Draw();
+			TryGetInput();
+			board->WinCheck();
+		}
+
+		board->EndScreen();
 	}
-
-	board->EndScreen();
-
 	
 }
 

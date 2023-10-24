@@ -9,11 +9,11 @@ int main()
     
     CMainProgramm* MinesweeperGame = new CMainProgramm();
 
-    MinesweeperGame->Initialize();
+    if(MinesweeperGame != nullptr){ MinesweeperGame->Initialize(); }
 
-    MinesweeperGame->Run();
+    if (MinesweeperGame != nullptr) { MinesweeperGame->Run(); }
 
-    MinesweeperGame->Finalize();
+    if (MinesweeperGame != nullptr) { MinesweeperGame->Finalize(); }
 
     delete MinesweeperGame;
     MinesweeperGame = nullptr;
