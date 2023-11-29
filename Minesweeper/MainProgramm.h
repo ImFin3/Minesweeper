@@ -28,7 +28,7 @@ private:
 	CBoard GetBoardValues(void);
 	int TryGetWidth(void);
 	int TryGetHeight(void);
-	int TryGetBombAmount(int numberOfFields);
+	int TryGetBombAmount(const int &numberOfFields);
 	void TryGetInput(void);
 	
 

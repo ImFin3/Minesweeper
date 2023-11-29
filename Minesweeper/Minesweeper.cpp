@@ -17,6 +17,6 @@ int main()
 
     delete MinesweeperGame;
     MinesweeperGame = nullptr;
-    
+
 }
 

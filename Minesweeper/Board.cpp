@@ -35,7 +35,7 @@ GameState CBoard::GetGameState(void)
     return this->gameState;
 }
 
-CBoard::CBoard(int a_iWidth, int a_iHeight, int a_iMineCount)
+CBoard::CBoard(const int &a_iWidth, const int &a_iHeight, const int &a_iMineCount)
 {
     width = a_iWidth;
     height = a_iHeight;
@@ -96,7 +96,7 @@ void CBoard::InstantiateBoardValues(void)
     }
 }
 
-void CBoard::CheckAndAssignBombAmountAt(int position)
+void CBoard::CheckAndAssignBombAmountAt(const int &position)
 {
     int bombAmount = 0;
 
@@ -430,7 +430,7 @@ void CBoard::GoRight(void)
     currentPosition += 1;
 }
 
-void CBoard::Reveal(int position)
+void CBoard::Reveal(const int &position)
 {
     //reveal cell on position
     cellList.at(position).SetIsRevealed(true);

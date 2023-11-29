@@ -128,7 +128,7 @@ int CMainProgramm::TryGetHeight(void)
 	}
 }
 
-int CMainProgramm::TryGetBombAmount(int numberOfFields)
+int CMainProgramm::TryGetBombAmount(const int &numberOfFields)
 {
 	system("cls");
 	std::wcout << "How many bombs should be hidden?\n";

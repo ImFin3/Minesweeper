@@ -5,7 +5,7 @@ CellType CCell::GetType(void)
 	return type;
 }
 
-void CCell::SetType(CellType a_ctType)
+void CCell::SetType(const CellType &a_ctType)
 {
 	type = a_ctType;
 }
@@ -25,7 +25,7 @@ bool CCell::GetMarkedState(void)
 	return markedState;
 }
 
-void CCell::SetMarkedState(bool a_bMarkedState)
+void CCell::SetMarkedState(const bool &a_bMarkedState)
 {
 	markedState = a_bMarkedState;
 }
@@ -35,7 +35,7 @@ bool CCell::GetIsSelected(void)
 	return isSelected;
 }
 
-void CCell::SetIsSelected(bool a_bIsSelected)
+void CCell::SetIsSelected(const bool &a_bIsSelected)
 {
 	isSelected = a_bIsSelected;
 }
@@ -45,12 +45,12 @@ bool CCell::GetIsRevealed(void)
 	return isRevealed;
 }
 
-void CCell::SetIsRevealed(bool a_bIsRevealed)
+void CCell::SetIsRevealed(const bool &a_bIsRevealed)
 {
 	isRevealed = a_bIsRevealed;
 }
 
-CCell::CCell(CellType a_ctType)
+CCell::CCell(const CellType &a_ctType)
 {
 	type = a_ctType;
 	markedState = false;

@@ -19,16 +19,16 @@ public:
 
 
 	CellType GetType(void);
-	void SetType(CellType a_ctType);
+	void SetType(const CellType &a_ctType);
 
 	bool GetMarkedState(void);
-	void SetMarkedState(bool a_bMarkedState);
+	void SetMarkedState(const bool &a_bMarkedState);
 
 	bool GetIsSelected(void);
-	void SetIsSelected(bool a_bIsSelected);
+	void SetIsSelected(const bool &a_bIsSelected);
 
 	bool GetIsRevealed(void);
-	void SetIsRevealed(bool a_bIsRevealed);
+	void SetIsRevealed(const bool &a_bIsRevealed);
 
 
 	#pragma endregion Getter/Setter
@@ -42,7 +42,7 @@ public:
 
 	#pragma region Constructor
 
-	CCell(CellType a_ctType);
+	CCell(const CellType &a_ctType);
 
 	#pragma endregion Constructor
 

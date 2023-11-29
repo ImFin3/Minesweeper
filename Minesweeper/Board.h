@@ -22,9 +22,9 @@ private:
 	int mineCount;
 	int listLength;
 	GameState gameState;
+
 	
 public:
-
 	#pragma region Getter
 
 	std::vector<CCell> GetCellList(void);
@@ -47,7 +47,7 @@ public:
 
 	CBoard();
 
-	CBoard(int a_iWidth, int a_iHeight,  int a_iMineCount);
+	CBoard(const int &a_iWidth, const int &a_iHeight, const int &a_iMineCount);
 
 	#pragma endregion Constructor
 
@@ -56,7 +56,7 @@ public:
 private:
 	void InstantiateBoardValues(void);
 
-	void CheckAndAssignBombAmountAt(int position);
+	void CheckAndAssignBombAmountAt(const int &position);
 
 	void WonScreen(void);
 	void LostScreen(void);
@@ -72,7 +72,7 @@ public:
 	void GoDown(void);
 	void GoRight(void);
 
-	void Reveal(int position);
+	void Reveal(const int &position);
 	void Mark(void);
 
 	#pragma endregion Methods
